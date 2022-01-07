@@ -8,11 +8,16 @@ import sbt.testing._
 
 final class JUnitEvent(
     taskDef: TaskDef,
-    val fullyQualifiedName: String,
-    val status: Status,
-    val selector: Selector,
-    val throwable: OptionalThrowable = new OptionalThrowable,
-    val duration: Long = -1L
+    fullyQualifiedName0: String,
+    status0: Status,
+    selector0: Selector,
+    throwable0: OptionalThrowable = new OptionalThrowable,
+    duration0: Long = -1L
 ) extends Event {
-  def fingerprint: Fingerprint = taskDef.fingerprint
+  override def fingerprint(): Fingerprint = taskDef.fingerprint()
+  override def fullyQualifiedName(): String = fullyQualifiedName0
+  override def status(): Status = status0
+  override def selector(): Selector = selector0
+  override def throwable(): OptionalThrowable = throwable0
+  override def duration(): Long = duration0
 }

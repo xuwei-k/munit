@@ -5,12 +5,12 @@ import munit.internal.junitinterface.CustomRunners
 import munit.internal.junitinterface.JUnitFramework
 
 class Framework extends JUnitFramework {
-  override val name = "munit"
-  val munitFingerprint = new CustomFingerprint("munit.Suite", isModule = false)
+  override def name() = "munit"
+  val munitFingerprint = new CustomFingerprint("munit.Suite", isModule0 = false)
   val customRunners = new CustomRunners(
     List(
       munitFingerprint,
-      new CustomFingerprint("munit.Suite", isModule = true)
+      new CustomFingerprint("munit.Suite", isModule0 = true)
     )
   )
 }

@@ -4,8 +4,9 @@ import sbt.testing.SubclassFingerprint
 
 class CustomFingerprint(
     val suite: String,
-    val isModule: Boolean
+    isModule0: Boolean
 ) extends SubclassFingerprint {
+  override def isModule(): Boolean = isModule0
   override def superclassName(): String = suite
   override def requireNoArgConstructor(): Boolean = true
 }
